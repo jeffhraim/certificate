@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Certificate of Completion</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f1c;
+      color: #fff;
+      text-align: center;
+      padding: 30px;
+    }
+    #certificate {
+      background-image: url('certificate-background.png'); /* replace with your image URL */
+      background-size: cover;
+      width: 1000px;
+      height: 700px;
+      margin: 0 auto;
+      padding-top: 150px;
+      position: relative;
+      color: white;
+    }
+    #studentName {
+      font-size: 40px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .input-section {
+      margin-top: 30px;
+    }
+    input {
+      padding: 10px;
+      font-size: 18px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎉 Congratulations!</h1>
+<p>Enter your name to generate your certificate:</p>
+
+<div class="input-section">
+  <input type="text" id="nameInput" placeholder="Your Full Name">
+  <button onclick="generateCertificate()">Generate</button>
+  <button onclick="downloadCertificate()">Download</button>
+</div>
+
+<br><br>
+
+<div id="certificate" style="display:none;">
+  <h2>CERTIFICATE OF COMPLETION</h2>
+  <p>This is to certify that</p>
+  <div id="studentName">Your Name</div>
+  <p>has successfully completed</p>
+  <h3>Platform Security Essentials</h3>
+  <p>Presented by Skillspire</p>
+</div>
+
+<script>
+  function generateCertificate() {
+    const name = document.getElementById("nameInput").value;
+    if (!name) return alert("Please enter your name.");
+    document.getElementById("studentName").innerText = name;
+    document.getElementById("certificate").style.display = "block";
+  }
+
+  function downloadCertificate() {
+    html2canvas(document.getElementById("certificate")).then(canvas => {
+      const link = document.createElement("a");
+      link.download = "Skillspire_Certificate.png";
+      link.href = canvas.toDataURL();
+      link.click();
+    });
+  }
+</script>
+
+<!-- Include html2canvas from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+</body>
+</html>
