@@ -12,21 +12,21 @@
       padding: 30px;
     }
 
-    #certificate {
-      background-image: url('https://jeffhraim.github.io/certificate/plats_certificate.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      width: 1200px;
-      height: 1200px;
-      margin: 0 auto;
-      position: relative;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+  #certificate {
+    background-image: url('https://jeffhraim.github.io/certificate/plats_certificate.png');
+    background-size: contain;      /* show the whole certificate */
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;                   /* or 1200px, but avoid forcing a square */
+    aspect-ratio: 10/16;           /* approximate the certificate’s ratio */
+    margin: 0 auto;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 
     #studentNameDisplay {
       position: absolute;       /* Must be absolute */
